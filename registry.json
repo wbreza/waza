@@ -429,6 +429,91 @@
               "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.14.0/microsoft-azd-waza-windows-arm64.zip"
             }
           }
+        },
+        {
+          "version": "0.15.0",
+          "capabilities": [
+            "custom-commands",
+            "metadata"
+          ],
+          "usage": "azd waza \u003ccommand\u003e [options]",
+          "examples": [
+            {
+              "name": "init",
+              "description": "Scaffold a new eval suite with eval.yaml, tasks/, and fixtures/ directories.",
+              "usage": "azd waza init my-eval --interactive"
+            },
+            {
+              "name": "generate",
+              "description": "Generate evals from a SKILL.md file.",
+              "usage": "azd waza generate skills/my-skill/SKILL.md"
+            },
+            {
+              "name": "run",
+              "description": "Run an evaluation benchmark from a spec file.",
+              "usage": "azd waza run examples/code-explainer/eval.yaml --context-dir examples/code-explainer/fixtures -v"
+            },
+            {
+              "name": "compare",
+              "description": "Compare results across models.",
+              "usage": "azd waza compare results-gpt4.json results-sonnet.json"
+            },
+            {
+              "name": "tokens",
+              "description": "Count tokens in skill files.",
+              "usage": "azd waza tokens count skills/"
+            }
+          ],
+          "artifacts": {
+            "darwin/amd64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "941f0b2891dc9fa17b865f31646414016e4b5147df1b53d03cfe874c600f15d6"
+              },
+              "entryPoint": "microsoft-azd-waza-darwin-amd64",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-darwin-amd64.zip"
+            },
+            "darwin/arm64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "4cc7ad05f688f1052e7a6534d23fe649aaae987374ec8758a0f3885718c7fe44"
+              },
+              "entryPoint": "microsoft-azd-waza-darwin-arm64",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-darwin-arm64.zip"
+            },
+            "linux/amd64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "6908bfe50b8abd8623f5d2b9c6acaa67d7cfceee64c2733195424e23465f97f1"
+              },
+              "entryPoint": "microsoft-azd-waza-linux-amd64",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-linux-amd64.tar.gz"
+            },
+            "linux/arm64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "b509a88ef1e50f1526968304e0c507fefb328877c45a1ca73f94c8cfa3d9b0f1"
+              },
+              "entryPoint": "microsoft-azd-waza-linux-arm64",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-linux-arm64.tar.gz"
+            },
+            "windows/amd64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "e2ce6c0b5cad37ff7b3f82465e319d82ea8709bd90ad4ab953b3ebb4012210b3"
+              },
+              "entryPoint": "microsoft-azd-waza-windows-amd64.exe",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-windows-amd64.zip"
+            },
+            "windows/arm64": {
+              "checksum": {
+                "algorithm": "sha256",
+                "value": "53f7f918242b7495edc4620b8c23a743d1a3d00e5bf6e6ed671812a9fc49ea03"
+              },
+              "entryPoint": "microsoft-azd-waza-windows-arm64.exe",
+              "url": "https://github.com/wbreza/waza/releases/download/azd-ext-microsoft-azd-waza_0.15.0/microsoft-azd-waza-windows-arm64.zip"
+            }
+          }
         }
       ]
     }
