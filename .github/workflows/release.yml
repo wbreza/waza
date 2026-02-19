@@ -78,7 +78,7 @@ jobs:
   build-cli:
     name: CLI ${{ matrix.os }}/${{ matrix.arch }}
     needs: setup-version
-    if: inputs.build_cli != false
+    if: github.event_name == 'push' || inputs.build_cli != false
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -194,7 +194,7 @@ jobs:
   release-extension:
     name: Release Extension
     needs: setup-version
-    if: inputs.build_extension != false
+    if: github.event_name == 'push' || inputs.build_extension != false
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
