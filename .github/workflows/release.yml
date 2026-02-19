@@ -275,23 +275,13 @@ jobs:
           # Delete existing remote branch if it exists (handle retries)
           git push origin --delete "$BRANCH" 2>/dev/null || true
 
-          # Save modified files from this workspace
-          cp registry.json /tmp/registry.json
-          cp version.txt /tmp/version.txt
-          cp extension.yaml /tmp/extension.yaml
-
-          # Create branch from origin/main with only the release changes
-          git checkout -f -b "$BRANCH" origin/main
-          cp /tmp/registry.json registry.json
-          cp /tmp/version.txt version.txt
-          cp /tmp/extension.yaml extension.yaml
-
-          # Check if there are any actual changes
-          if git diff --quiet; then
+          # Check if there are any actual changes to commit
+          if git diff --quiet registry.json version.txt extension.yaml; then
             echo "All files already up to date, skipping PR creation"
             exit 0
           fi
 
+          git checkout -b "$BRANCH"
           git add registry.json version.txt extension.yaml
           git commit -m "chore: Update registry and sync versions for v${VERSION}"
           git push origin "$BRANCH"
