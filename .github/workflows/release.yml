@@ -275,13 +275,13 @@ jobs:
           # Delete existing remote branch if it exists (handle retries)
           git push origin --delete "$BRANCH" 2>/dev/null || true
 
-          # Check if there are any actual changes to commit
-          if git diff --quiet registry.json version.txt extension.yaml; then
-            echo "All files already up to date, skipping PR creation"
-            exit 0
-          fi
-
+          # Create branch from current state (has synced versions + updated registry)
           git checkout -b "$BRANCH"
+
+          # Merge origin/main so the PR branch isn't behind main
+          git fetch origin main
+          git merge origin/main -m "merge origin/main" --no-edit
+
           git add registry.json version.txt extension.yaml
           git commit -m "chore: Update registry and sync versions for v${VERSION}"
           git push origin "$BRANCH"
